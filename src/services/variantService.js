@@ -37,8 +37,8 @@ exports.createVariant = async (variantData) => {
 
   // Espera un segundo antes de enviar la petición al webhook externo
   const webhookUrl = process.env.EXTERNAL_WEBHOOK_URL;
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  await axios.post(webhookUrl, requestBody, { timeout: 10000 })
+  await new Promise((resolve) => setTimeout(resolve, 6000));
+  await axios.post(webhookUrl, requestBody);
 
   return requestBody;
 };
