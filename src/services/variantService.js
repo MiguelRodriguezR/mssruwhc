@@ -15,7 +15,7 @@ exports.createVariant = async (variantData) => {
     throw new Error('Product not found');
   }
 
-  //Verifica si las fechas de creación son iguales
+  // Verifica si las fechas de creación son iguales
   if (product.create_date === create_date) {
     return { message: 'No se envía webhook porque las fechas de creación son iguales' };
   }
@@ -35,8 +35,9 @@ exports.createVariant = async (variantData) => {
     cost: cost,
   };
 
-  // Envía la petición al webhook externo
+  // Espera un segundo antes de enviar la petición al webhook externo
   const webhookUrl = process.env.EXTERNAL_WEBHOOK_URL;
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   await axios.post(webhookUrl, requestBody);
 
   return requestBody;
