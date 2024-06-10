@@ -1,0 +1,15 @@
+{
+    "name": "my-webhook-service",
+    "version": "1.0.0",
+    "description": "Servicio para recibir webhooks y guardar productos en MongoDB",
+    "main": "src/server.js",
+    "scripts": {
+        "start": "node src/server.js"
+    },
+    "dependencies": {
+        "axios": "^1.7.2",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "mongoose": "^5.12.3"
+    }
+}
